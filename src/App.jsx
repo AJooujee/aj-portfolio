@@ -9,6 +9,7 @@ const menuItems = [
   'Experience',
   'Projects',
   'Resume',
+  'Certificates',
   'Contact',
 ]
 
@@ -158,6 +159,33 @@ const experiences = [
       'Updated website content and supported the restaurant’s online presence across digital channels.',
     ],
     technologies: ['HTML', 'CSS', 'JavaScript', 'Responsive Design'],
+  },
+]
+
+const certificates = [
+  {
+    title: 'University of Massachusetts Lowell Certificate',
+    issuer: 'University of Massachusetts Lowell',
+    date: 'June 2025',
+    file: '/Certificate_UMass_Lowell.pdf',
+    downloadName: 'AJ_UMass_Lowell_Certificate.pdf',
+    logo: '/uml-logo.png',
+  },
+  {
+    title: 'Data Science Certificate',
+    issuer: 'UMass Global Data Science Bootcamp',
+    date: 'Completed August 2024',
+    file: '/Data_Science_Certificate.pdf',
+    downloadName: 'AJ_Data_Science_Certificate.pdf',
+    logo: '/DS-logo.png',
+  },
+  {
+    title: 'Google IT Support Professional Certificate',
+    issuer: 'Google · Coursera',
+    date: 'Completed January 2021',
+    file: '/IT_Support_Certificate.pdf',
+    downloadName: 'AJ_IT_Support_Certificate.pdf',
+    logo: '/gg-logo.png',
   },
 ]
 
@@ -622,15 +650,138 @@ const handleContactSubmit = (event) => {
             <p>Details coming soon.</p>
           </section>
 
-          <section id="resume" className="page-section">
-            <h2>Resume</h2>
+          <section id="resume" className="page-section resume-section">
+            <div className="section-heading">
+              <h2>Resume</h2>
+              <span className="heading-line"></span>
 
-            <p className="resume-introduction">
-              My resume preview and downloadable PDF will be added here.
-            </p>
+              <p className="resume-introduction">
+                Review my education, software engineering experience, technical skills,
+                projects, and certifications.
+              </p>
+            </div>
 
-            <div className="resume-placeholder">
-              <span>Resume preview coming soon</span>
+            <div className="resume-container">
+              <div className="resume-toolbar">
+                <div className="resume-file-info">
+                  <span className="resume-file-icon" aria-hidden="true">
+                    PDF
+                  </span>
+
+                  <div>
+                    <h3>AJ C. Pipattanakun — Computer Science Resume</h3>
+                    <p>Two-page resume · Updated version</p>
+                  </div>
+                </div>
+
+                <div className="resume-actions">
+                  <a
+                    className="resume-action-button secondary"
+                    href="/AJ_C_Pipattanakun_Resume_CS.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    View Full Resume
+                  </a>
+
+                  <a
+                    className="resume-action-button primary"
+                    href="/AJ_C_Pipattanakun_Resume_CS.pdf"
+                    download="AJ_C_Pipattanakun_Resume_CS.pdf"
+                  >
+                    Download PDF
+                  </a>
+                </div>
+              </div>
+
+              <div className="resume-viewer">
+                <iframe
+                  src="/AJ_C_Pipattanakun_Resume_CS.pdf#toolbar=0&navpanes=0&scrollbar=1"
+                  title="AJ C. Pipattanakun Resume"
+                ></iframe>
+
+                <div className="resume-fallback">
+                  <p>
+                    Your browser may not support an embedded PDF preview.
+                  </p>
+
+                  <a
+                    href="/AJ_C_Pipattanakun_Resume_CS.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Open the resume in a new tab
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+
+          <section
+            id="certificates"
+            className="page-section certificates-section"
+          >
+            <div className="section-heading">
+              <h2>Certificates</h2>
+              <span className="heading-line"></span>
+
+              <p className="certificates-intro">
+                Certificates from my computer science education, data science training,
+                and professional IT support coursework.
+              </p>
+            </div>
+
+            <div className="certificates-list">
+              {certificates.map((certificate) => (
+                <article className="certificate-container" key={certificate.title}>
+                  <div className="certificate-toolbar">
+                    <div className="certificate-file-info">
+                      <div className="certificate-logo-wrapper">
+                        <img
+                          className="certificate-logo"
+                          src={certificate.logo}
+                          alt={`${certificate.title} logo`}
+                        />
+                      </div>
+
+                      <div>
+                        <h3>{certificate.title}</h3>
+                        <p>
+                          {certificate.issuer} · {certificate.date}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="certificate-actions">
+                      <a
+                        className="certificate-action-button secondary"
+                        href={certificate.file}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        View Certificate
+                      </a>
+
+                      <a
+                        className="certificate-action-button primary"
+                        href={certificate.file}
+                        download={certificate.downloadName}
+                      >
+                        Download PDF
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="certificate-viewer">
+                    <iframe
+                      src={`${certificate.file}#toolbar=0&navpanes=0&scrollbar=1`}
+                      title={certificate.title}
+                    ></iframe>
+                  </div>
+                </article>
+              ))}
             </div>
           </section>
 
