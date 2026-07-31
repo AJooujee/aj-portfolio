@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './App.css'
 
 const menuItems = [
@@ -189,9 +189,199 @@ const certificates = [
   },
 ]
 
+const projects = [
+  {
+  number: '01',
+  title: 'Tihranix AI Decision and Forecasting Platform',
+  shortTitle: 'Tihranix Software Engineering Internship',
+  status: 'Ongoing',
+  label: 'Internship Software Engineering Project',
+  description:
+    'A team-based software engineering project developed during my internship at Tihranix. My work has focused on forecasting, decision intelligence, backend services, forecast preview behavior, PLDM-driven context, and operational intelligence research within a larger AI platform.',
+  highlights: [
+    'Contributed to forecasting and decision-intelligence features in a shared production codebase.',
+    'Improved forecast previews based on selected KPIs, models, time horizons, and sensitivity drivers.',
+    'Connected forecast outputs with PLDM-driven context and clearer source labeling.',
+    'Added model-specific and KPI-specific preview behavior for charts, reasoning, accuracy, and active model states.',
+    'Worked through feature branches, pull requests, local build validation, Docker, and team code review.',
+  ],
+  technologies: [
+    'Python',
+    'FastAPI',
+    'TypeScript',
+    'Next.js',
+    'PostgreSQL',
+    'Docker',
+    'Git',
+    'GitHub',
+    'REST APIs',
+    'PLDM',
+  ],
+  link: 'https://github.com/TihranixAI/tihranix-platform',
+  privateRepository: true,
+  },
+
+  {
+    number: '02',
+    title: 'Real-Time Multi-Sensor Monitoring and Fault-Tolerant System',
+    shortTitle: 'Real-Time Sensor Monitoring System',
+    status: 'Completed',
+    description:
+      'A real-time software system that receives simulated temperature, voltage, position, and motion sensor data over TCP/IP. The application validates JSON messages, detects abnormal readings and missing updates, records structured events, and transitions between fault-tolerant operating states.',
+    highlights: [
+      'Processes four independent sensor types over TCP/IP.',
+      'Detects warning, critical, simultaneous, and timeout faults.',
+      'Maintains NORMAL, DEGRADED, and SAFE_MODE system states.',
+      'Includes structured event logging and sensor recovery handling.',
+      'Passed 21 unit tests and 6 end-to-end integration and regression scenarios.',
+    ],
+    technologies: [
+      'C++17',
+      'Python',
+      'TCP/IP',
+      'JSON',
+      'CMake',
+      'GoogleTest',
+      'CTest',
+      'GitHub',
+    ],
+    link: 'https://github.com/AJooujee/Software_Engineering_Career_Projects/tree/main/real-time-sensor-monitoring-system',
+  },
+  {
+    number: '03',
+    title: 'Secure Command-and-Control Message Processing Simulator',
+    shortTitle: 'Secure Command Control Simulator',
+    status: 'Completed',
+    description:
+      'A Java and Python software engineering project for simulating secure and reliable command exchange between a control station and a remote unit. The project is being structured around authenticated messages, state-dependent command handling, retries, acknowledgements, validation, and audit logging.',
+    highlights: [
+      'Designed around TCP/IP client-server communication.',
+      'Uses structured JSON command messages.',
+      'Plans HMAC-SHA256 message authentication and replay protection.',
+      'Includes sequence-number and timestamp validation.',
+      'Uses Gradle, JUnit, Docker, Git, and GitHub.',
+    ],
+    technologies: [
+      'Java 21',
+      'Python',
+      'Gradle',
+      'JUnit 5',
+      'TCP/IP',
+      'JSON',
+      'Docker',
+      'GitHub',
+    ],
+    link: 'https://github.com/AJooujee/Software_Engineering_Career_Projects/tree/main/secure-command-control-simulator',
+  },
+    {
+    number: '04',
+    title: 'Fake Detection Using Natural Language Processing',
+    shortTitle: 'Fake Detection NLP Project',
+    status: 'Completed',
+    description:
+      'A natural language processing project for analyzing written content and classifying whether the information is likely to be genuine or misleading. The project applies text preparation, feature extraction, model training, and evaluation to a document classification problem.',
+    highlights: [
+      'Prepares and cleans text data for machine learning.',
+      'Converts written content into numerical features for classification.',
+      'Trains and compares models for fake-content detection.',
+      'Evaluates classification results using standard performance metrics.',
+      'Organizes the analysis and model workflow in a reproducible project structure.',
+    ],
+    technologies: [
+      'Python',
+      'Natural Language Processing',
+      'Pandas',
+      'NumPy',
+      'scikit-learn',
+      'Jupyter',
+      'Machine Learning',
+    ],
+    link: 'https://github.com/AJooujee/Fake_Detection_NLP-Project',
+  },
+  {
+    number: '05',
+    title: 'Cozmo Robot Programming and Robotics Projects',
+    shortTitle: 'Cozmo Robotics Projects',
+    status: 'Completed',
+    description:
+      'A collection of Python robotics exercises developed for the Cozmo robot. The repository contains multiple laboratory projects focused on robot programming, movement, sensing, interaction, and task-based behavior.',
+    highlights: [
+      'Organized robotics exercises across five laboratory folders.',
+      'Uses Python to control and program robot behavior.',
+      'Explores movement, sensing, and interactive robot responses.',
+      'Applies programming concepts to physical robotics tasks.',
+      'Provides separate implementations for multiple robotics assignments.',
+    ],
+    technologies: [
+      'Python',
+      'Cozmo SDK',
+      'Robotics',
+      'Computer Vision',
+      'Robot Control',
+    ],
+    link: 'https://github.com/AJooujee/Cozmo-Robot-Programming-Robotics_Projects',
+  },
+
+    {
+    number: '06',
+    title: 'Premier League 2015–2023 Statistics Analysis',
+    shortTitle: 'Premier League Statistics',
+    status: 'Completed',
+    description:
+      'A data science project that analyzes English Premier League team and league statistics across the 2015–2016 through 2022–2023 seasons. The project combines multiple seasonal datasets, prepares cleaned training data, explores performance patterns, and applies statistical and machine learning methods.',
+    highlights: [
+      'Combined Premier League standings and team statistics across eight seasons.',
+      'Cleaned and prepared multiple CSV datasets for analysis and modeling.',
+      'Performed exploratory data analysis to identify team and season-level patterns.',
+      'Created training and test datasets for model development.',
+      'Documented the workflow through Jupyter notebooks and analytical reports.',
+    ],
+    technologies: [
+      'Python',
+      'Pandas',
+      'NumPy',
+      'Jupyter',
+      'Data Wrangling',
+      'Data Visualization',
+      'Machine Learning',
+      'CSV',
+    ],
+    link: 'https://github.com/AJooujee/Data-Scientist_Career-Projects/tree/main/Premier-Leauge-2015-2023-Statistics',
+  },
+  {
+    number: '07',
+    title: 'Big Mountain Resort Pricing Analysis',
+    shortTitle: 'Big Mountain Resort Pricing',
+    status: 'Completed',
+    description:
+      'A guided data science capstone project focused on evaluating ski resort pricing and business factors. The project follows a complete analytical workflow from problem definition and data preparation through exploratory analysis, preprocessing, model development, and reporting.',
+    highlights: [
+      'Defined the business problem and analytical objectives for resort pricing.',
+      'Cleaned and prepared resort data for statistical analysis.',
+      'Explored relationships between pricing, resort characteristics, and amenities.',
+      'Prepared training data and developed predictive models.',
+      'Produced project reports documenting findings and the modeling workflow.',
+    ],
+    technologies: [
+      'Python',
+      'Pandas',
+      'NumPy',
+      'Jupyter',
+      'Matplotlib',
+      'scikit-learn',
+      'Exploratory Data Analysis',
+      'Predictive Modeling',
+    ],
+    link: 'https://github.com/AJooujee/Data-Scientist_Career-Projects/tree/main/Big_Mountain_Resort_Capstone',
+  },
+
+]
+
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
+  const projectSliderRef = useRef(null)
 
   const [contactForm, setContactForm] = useState({
   name: '',
@@ -229,6 +419,24 @@ const handleContactSubmit = (event) => {
   const handleMenuClick = (sectionName) => {
     setActiveSection(sectionName.toLowerCase())
     closeMenu()
+  }
+
+  const scrollProjects = (direction) => {
+    const slider = projectSliderRef.current
+
+    if (!slider) {
+      return
+    }
+
+    const firstCard = slider.querySelector('.project-card')
+    const cardWidth = firstCard?.getBoundingClientRect().width ?? 420
+    const gap = 28
+    const scrollAmount = cardWidth + gap
+
+    slider.scrollBy({
+      left: direction === 'right' ? scrollAmount : -scrollAmount,
+      behavior: 'smooth',
+    })
   }
 
   useEffect(() => {
@@ -645,9 +853,154 @@ const handleContactSubmit = (event) => {
             </div>
           </section>
 
-          <section id="projects" className="page-section">
-            <h2>Projects</h2>
-            <p>Details coming soon.</p>
+          <section id="projects" className="page-section projects-section">
+            <div className="section-heading">
+              <h2>Projects</h2>
+              <span className="heading-line"></span>
+
+              <p className="projects-intro">
+                Software engineering projects focused on backend systems, object-oriented
+                design, network communication, testing, reliability, and practical
+                problem-solving.
+              </p>
+            </div>
+
+            <div className="projects-carousel">
+              <div className="projects-navigation">
+                <p>Swipe or use the arrows to explore my projects.</p>
+
+                <div className="project-arrow-buttons">
+                  <button
+                    className="project-arrow-button"
+                    type="button"
+                    aria-label="View previous projects"
+                    onClick={() => scrollProjects('left')}
+                  >
+                    <svg
+                      aria-hidden="true"
+                      viewBox="0 0 24 24"
+                      width="22"
+                      height="22"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="m15.41 7.41-1.42-1.42L8 12l5.99 6.01 1.42-1.42L10.83 12z"
+                      />
+                    </svg>
+                  </button>
+
+                  <button
+                    className="project-arrow-button"
+                    type="button"
+                    aria-label="View next projects"
+                    onClick={() => scrollProjects('right')}
+                  >
+                    <svg
+                      aria-hidden="true"
+                      viewBox="0 0 24 24"
+                      width="22"
+                      height="22"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="m8.59 16.59 1.42 1.42L16 12l-5.99-6.01-1.42 1.42L13.17 12z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                className="projects-slider"
+                ref={projectSliderRef}
+                tabIndex="0"
+                aria-label="Portfolio projects"
+              >
+                {projects.map((project) => (
+                  <article className="project-card" key={project.title}>
+                    <div className="project-card-top">
+                      <span className="project-number">{project.number}</span>
+
+                      <span
+                        className={
+                          project.status === 'Completed'
+                            ? 'project-status completed'
+                            : 'project-status development'
+                        }
+                      >
+                        {project.status}
+                      </span>
+                    </div>
+
+                    <div className="project-content">
+                      <p className="project-label">
+                        {project.label ?? 'Software Engineering Project'}
+                      </p>
+
+                      <h3>{project.shortTitle}</h3>
+
+                      <p className="project-full-title">
+                        {project.title}
+                      </p>
+
+                      <p className="project-description">
+                        {project.description}
+                      </p>
+
+                      <div className="project-divider"></div>
+
+                      <h4>Project Highlights</h4>
+
+                      <ul className="project-highlights">
+                        {project.highlights.map((highlight) => (
+                          <li key={highlight}>{highlight}</li>
+                        ))}
+                      </ul>
+
+                      <div className="project-technologies">
+                        {project.technologies.map((technology) => (
+                          <span key={technology}>{technology}</span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {project.privateRepository && (
+                      <p className="private-repository-note">
+                        Private team repository. Source access is limited to authorized
+                        collaborators.
+                      </p>
+                    )}
+
+                    <a
+                      className="project-review-button"
+                      href={project.link}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span>
+                        {project.privateRepository ? 'View Private Repository' : 'Review Project'}
+                      </span>
+
+                      <svg
+                        aria-hidden="true"
+                        viewBox="0 0 24 24"
+                        width="20"
+                        height="20"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3ZM5 5h6V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6h-2v6H5V5Z"
+                        />
+                      </svg>
+                    </a>
+                  </article>
+                ))}
+              </div>
+
+              <div className="projects-scroll-hint" aria-hidden="true">
+                <span></span>
+              </div>
+            </div>
           </section>
 
           <section id="resume" className="page-section resume-section">
