@@ -378,6 +378,7 @@ const projects = [
 ]
 
 
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
