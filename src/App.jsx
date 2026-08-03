@@ -181,7 +181,7 @@ const certificates = [
     date: 'Completed August 2024',
     file: publicFile('Data_Science_Certificate.pdf'),
     downloadName: 'AJ_Data_Science_Certificate.pdf',
-    logo: publicFile('ds-logo.png'),
+    logo: publicFile('DS-logo.png'),
   },
   {
     title: 'Google IT Support Professional Certificate',
@@ -388,7 +388,8 @@ function App() {
   const [activeSection, setActiveSection] = useState('home')
   const [showContactMessage, setShowContactMessage] = useState(false)
 
-  const [formspreeState, submitToFormspree] = useForm('xnjeeddo')
+  const [formspreeState, submitToFormspree, resetFormspree] =
+  useForm('xnjeeddo')
 
   const projectSliderRef = useRef(null)
 
@@ -407,48 +408,9 @@ const handleContactChange = (event) => {
   }))
 }
 
-const handleContactSubmit = (event) => {
+const handleContactSubmit = async (event) => {
   event.preventDefault()
-
-  const subject = encodeURIComponent(
-    `Portfolio message from ${contactForm.name}`,
-  )
-
-  const body = encodeURIComponent(
-    `Name: ${contactForm.name}\nEmail: ${contactForm.email}\n\nMessage:\n${contactForm.message}`,
-  )
-
-  setShowContactMessage(true)
-
-  const handleContactSubmit = async (event) => {
-    event.preventDefault()
-
-    const formData = new FormData()
-
-    formData.append('name', contactForm.name)
-    formData.append('email', contactForm.email)
-    formData.append('message', contactForm.message)
-    formData.append(
-      'subject',
-      `Portfolio message from ${contactForm.name}`,
-    )
-
-    const result = await submitToFormspree(formData)
-
-    if (result?.response?.ok || result?.body?.ok) {
-      setShowContactMessage(true)
-
-      setContactForm({
-        name: '',
-        email: '',
-        message: '',
-      })
-
-      window.setTimeout(() => {
-        setShowContactMessage(false)
-      }, 7000)
-    }
-  }
+  await submitToFormspree(event)
 }
 
   const closeMenu = () => {
@@ -477,6 +439,29 @@ const handleContactSubmit = (event) => {
       behavior: 'smooth',
     })
   }
+
+  useEffect(() => {
+  if (!formspreeState.succeeded) {
+    return
+  }
+
+  setShowContactMessage(true)
+
+  setContactForm({
+    name: '',
+    email: '',
+    message: '',
+  })
+
+  const notificationTimer = window.setTimeout(() => {
+    setShowContactMessage(false)
+    resetFormspree()
+  }, 7000)
+
+  return () => {
+    window.clearTimeout(notificationTimer)
+  }
+}, [formspreeState.succeeded, resetFormspree])
 
   useEffect(() => {
     const sectionIds = menuItems.map((item) => item.toLowerCase())
@@ -1207,35 +1192,6 @@ const handleContactSubmit = (event) => {
                   />
                 </div>
 
-                {showContactMessage && (
-                  <div
-                    className="contact-success-message"
-                    role="status"
-                    aria-live="polite"
-                  >
-                    <button
-                      className="contact-success-close"
-                      type="button"
-                      aria-label="Close notification"
-                      onClick={() => setShowContactMessage(false)}
-                    >
-                      ×
-                    </button>
-
-                    <div className="contact-success-icon" aria-hidden="true">
-                      ✓
-                    </div>
-
-                    <div>
-                      <h3>Message sent successfully!</h3>
-
-                      <p>
-                        Your message has been sent to AJ. Please allow up to 24 hours
-                        for a response. Thank you for visiting my portfolio!
-                      </p>
-                    </div>
-                  </div>
-                )}
 
                 <div className="form-field">
                   <label htmlFor="contact-email">Email Address</label>
@@ -1247,7 +1203,7 @@ const handleContactSubmit = (event) => {
                     value={contactForm.email}
                     onChange={handleContactChange}
                     autoComplete="email"
-                    placeholder="Enter your email"
+                    placeholder="Enter your email" 
                     required
                   />
                 </div>
@@ -1290,36 +1246,42 @@ const handleContactSubmit = (event) => {
                   </svg>
                 </button>
 
-                <button
-                  className="contact-submit-button"
-                  type="submit"
-                  disabled={formspreeState.submitting}
-                >
-                  <span>
-                    {formspreeState.submitting
-                      ? 'Sending...'
-                      : 'Send Message'}
-                  </span>
-
-                  <svg
-                    aria-hidden="true"
-                    viewBox="0 0 24 24"
-                    width="20"
-                    height="20"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M2.01 21 23 12 2.01 3 2 10l15 2-15 2z"
-                    />
-                  </svg>
-                </button>
-
-                {formspreeState.errors && (
+                {formspreeState.errors?.length > 0 && (
                   <p className="contact-error-message">
                     Something went wrong while sending your message. Please try again.
                   </p>
                 )}
               </form>
+
+              {showContactMessage && (
+                  <div
+                    className="contact-success-message"
+                    role="status"
+                    aria-live="polite"
+                  >
+                    <button
+                      className="contact-success-close"
+                      type="button"
+                      aria-label="Close notification"
+                      onClick={() => setShowContactMessage(false)}
+                    >
+                      ×
+                    </button>
+
+                    <div className="contact-success-icon" aria-hidden="true">
+                      ✓
+                    </div>
+
+                    <div>
+                      <h3>Message sent successfully!</h3>
+
+                      <p>
+                        Your message has been sent to AJ. Please allow up to 24 hours
+                        for a response. Thank you for visiting my portfolio!
+                      </p>
+                    </div>
+                  </div>
+                )}
 
               <div className="contact-social-area">
                 <p>Connect with me</p>
