@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useForm } from '@formspree/react'
 import './App.css'
 
 const publicFile = (fileName) =>
@@ -387,6 +388,8 @@ function App() {
   const [activeSection, setActiveSection] = useState('home')
   const [showContactMessage, setShowContactMessage] = useState(false)
 
+  const [formspreeState, submitToFormspree] = useForm('xnjeeddo')
+
   const projectSliderRef = useRef(null)
 
   const [contactForm, setContactForm] = useState({
@@ -417,12 +420,35 @@ const handleContactSubmit = (event) => {
 
   setShowContactMessage(true)
 
-  window.location.href =
-    `mailto:pipattanakun23aj@gmail.com?subject=${subject}&body=${body}`
+  const handleContactSubmit = async (event) => {
+    event.preventDefault()
 
-  window.setTimeout(() => {
-    setShowContactMessage(false)
-  }, 7000)
+    const formData = new FormData()
+
+    formData.append('name', contactForm.name)
+    formData.append('email', contactForm.email)
+    formData.append('message', contactForm.message)
+    formData.append(
+      'subject',
+      `Portfolio message from ${contactForm.name}`,
+    )
+
+    const result = await submitToFormspree(formData)
+
+    if (result?.response?.ok || result?.body?.ok) {
+      setShowContactMessage(true)
+
+      setContactForm({
+        name: '',
+        email: '',
+        message: '',
+      })
+
+      window.setTimeout(() => {
+        setShowContactMessage(false)
+      }, 7000)
+    }
+  }
 }
 
   const closeMenu = () => {
@@ -1201,12 +1227,11 @@ const handleContactSubmit = (event) => {
                     </div>
 
                     <div>
-                      <h3>Your message is ready!</h3>
+                      <h3>Message sent successfully!</h3>
 
                       <p>
-                        Your email application has been opened with your message ready to send.
-                        Please click Send to deliver it to AJ. You can expect a response within
-                        24 hours. Thank you for visiting my portfolio!
+                        Your message has been sent to AJ. Please allow up to 24 hours
+                        for a response. Thank you for visiting my portfolio!
                       </p>
                     </div>
                   </div>
@@ -1241,8 +1266,16 @@ const handleContactSubmit = (event) => {
                   ></textarea>
                 </div>
 
-                <button className="contact-submit-button" type="submit">
-                  <span>Send Message</span>
+                <button
+                  className="contact-submit-button"
+                  type="submit"
+                  disabled={formspreeState.submitting}
+                >
+                  <span>
+                    {formspreeState.submitting
+                      ? 'Sending...'
+                      : 'Send Message'}
+                  </span>
 
                   <svg
                     aria-hidden="true"
@@ -1256,6 +1289,36 @@ const handleContactSubmit = (event) => {
                     />
                   </svg>
                 </button>
+
+                <button
+                  className="contact-submit-button"
+                  type="submit"
+                  disabled={formspreeState.submitting}
+                >
+                  <span>
+                    {formspreeState.submitting
+                      ? 'Sending...'
+                      : 'Send Message'}
+                  </span>
+
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    width="20"
+                    height="20"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M2.01 21 23 12 2.01 3 2 10l15 2-15 2z"
+                    />
+                  </svg>
+                </button>
+
+                {formspreeState.errors && (
+                  <p className="contact-error-message">
+                    Something went wrong while sending your message. Please try again.
+                  </p>
+                )}
               </form>
 
               <div className="contact-social-area">
