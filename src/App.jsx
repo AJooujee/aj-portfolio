@@ -299,7 +299,7 @@ const projects = [
       'Jupyter',
       'Machine Learning',
     ],
-    link: 'https://github.com/AJooujee/Fake_Detection_NLP-Project',
+    link: 'https://github.com/AJooujee/Fake_Detection_NLP-Project./tree/main/fake_new_Detection',
   },
   {
     number: '05',
@@ -385,6 +385,8 @@ const projects = [
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
+  const [showContactMessage, setShowContactMessage] = useState(false)
+
   const projectSliderRef = useRef(null)
 
   const [contactForm, setContactForm] = useState({
@@ -413,7 +415,14 @@ const handleContactSubmit = (event) => {
     `Name: ${contactForm.name}\nEmail: ${contactForm.email}\n\nMessage:\n${contactForm.message}`,
   )
 
-  window.location.href = `mailto:pipattanakun23aj@gmail.com?subject=${subject}&body=${body}`
+  setShowContactMessage(true)
+
+  window.location.href =
+    `mailto:pipattanakun23aj@gmail.com?subject=${subject}&body=${body}`
+
+  window.setTimeout(() => {
+    setShowContactMessage(false)
+  }, 7000)
 }
 
   const closeMenu = () => {
@@ -1171,6 +1180,37 @@ const handleContactSubmit = (event) => {
                     required
                   />
                 </div>
+
+                {showContactMessage && (
+                  <div
+                    className="contact-success-message"
+                    role="status"
+                    aria-live="polite"
+                  >
+                    <button
+                      className="contact-success-close"
+                      type="button"
+                      aria-label="Close notification"
+                      onClick={() => setShowContactMessage(false)}
+                    >
+                      ×
+                    </button>
+
+                    <div className="contact-success-icon" aria-hidden="true">
+                      ✓
+                    </div>
+
+                    <div>
+                      <h3>Your message is ready!</h3>
+
+                      <p>
+                        Your email application has been opened with your message ready to send.
+                        Please click Send to deliver it to AJ. You can expect a response within
+                        24 hours. Thank you for visiting my portfolio!
+                      </p>
+                    </div>
+                  </div>
+                )}
 
                 <div className="form-field">
                   <label htmlFor="contact-email">Email Address</label>
