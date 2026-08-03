@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import './App.css'
 
+const publicFile = (fileName) =>
+  `${import.meta.env.BASE_URL}${fileName}`
+
 const menuItems = [
   'Home',
   'About',
@@ -129,7 +132,7 @@ const experiences = [
     company: 'Tihranix',
     location: 'Foxborough, Massachusetts',
     period: 'May 2026 – Present',
-    logo: '/tihranix-logo.png',
+    logo: publicFile('tihranix-logo.png'),
     responsibilities: [
       'Develop forecasting and decision-intelligence features using FastAPI, Next.js, TypeScript, and Python.',
       'Improve the Forecast Builder so previews respond to selected KPIs, forecasting models, time horizons, and sensitivity drivers.',
@@ -152,7 +155,7 @@ const experiences = [
     company: 'Bang Na Thai-Kitchen',
     location: 'North Billerica, Massachusetts',
     period: 'May 2022 – June 2025',
-    logo: '/bangna-logo.png',
+    logo: publicFile('bangna-logo.png'),
     responsibilities: [
       'Designed and maintained a responsive restaurant website using HTML, CSS, and JavaScript.',
       'Integrated the online menu and contact forms to make restaurant information and customer communication easier to access.',
@@ -167,25 +170,25 @@ const certificates = [
     title: 'University of Massachusetts Lowell Certificate',
     issuer: 'University of Massachusetts Lowell',
     date: 'June 2025',
-    file: '/Certificate_UMass_Lowell.pdf',
+    file: publicFile('Certificate_UMass_Lowell.pdf'),
     downloadName: 'AJ_UMass_Lowell_Certificate.pdf',
-    logo: '/uml-logo.png',
+    logo: publicFile('uml-logo.png'),
   },
   {
     title: 'Data Science Certificate',
     issuer: 'UMass Global Data Science Bootcamp',
     date: 'Completed August 2024',
-    file: '/Data_Science_Certificate.pdf',
+    file: publicFile('Data_Science_Certificate.pdf'),
     downloadName: 'AJ_Data_Science_Certificate.pdf',
-    logo: '/DS-logo.png',
+    logo: publicFile('ds-logo.png'),
   },
   {
     title: 'Google IT Support Professional Certificate',
     issuer: 'Google · Coursera',
     date: 'Completed January 2021',
-    file: '/IT_Support_Certificate.pdf',
+    file: publicFile('IT_Support_Certificate.pdf'),
     downloadName: 'AJ_IT_Support_Certificate.pdf',
-    logo: '/gg-logo.png',
+    logo: publicFile('gg-logo.png'),
   },
 ]
 
@@ -559,7 +562,7 @@ const handleContactSubmit = (event) => {
               <div className="mascot-walker">
                 <img
                   className="mascot-image"
-                  src="/mascot.png"
+                  src={publicFile('mascot.png')}
                   alt=""
                 />
               </div>
@@ -577,7 +580,7 @@ const handleContactSubmit = (event) => {
                 <div className="about-photo-frame">
                   <img
                     className="about-photo"
-                    src="/about-me.png"
+                    src={publicFile('about-me.png')}
                     alt="AJ Pipattanakun"
                   />
                 </div>
@@ -639,7 +642,7 @@ const handleContactSubmit = (event) => {
                 <div className="education-card-header">
                   <div className="education-icon">
                     <img
-                      src="/uml-logo.png"
+                      src={publicFile('uml-logo.png')}
                       alt="University of Massachusetts Lowell logo"
                     />
                   </div>
@@ -682,7 +685,7 @@ const handleContactSubmit = (event) => {
                 <div className="education-card-header">
                   <div className="education-icon">
                     <img
-                      src="/uml-logo.png"
+                      src={publicFile('uml-logo.png')}
                       alt="University of Massachusetts Lowell logo"
                     />
                   </div>
@@ -1031,7 +1034,7 @@ const handleContactSubmit = (event) => {
                 <div className="resume-actions">
                   <a
                     className="resume-action-button secondary"
-                    href="/AJ_C_Pipattanakun_Resume_CS.pdf"
+                    href={publicFile('AJ_C_Pipattanakun_Resume_CS.pdf')}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -1040,7 +1043,7 @@ const handleContactSubmit = (event) => {
 
                   <a
                     className="resume-action-button primary"
-                    href="/AJ_C_Pipattanakun_Resume_CS.pdf"
+                    href={publicFile('AJ_C_Pipattanakun_Resume_CS.pdf')}
                     download="AJ_C_Pipattanakun_Resume_CS.pdf"
                   >
                     Download PDF
@@ -1050,7 +1053,9 @@ const handleContactSubmit = (event) => {
 
               <div className="resume-viewer">
                 <iframe
-                  src="/AJ_C_Pipattanakun_Resume_CS.pdf#toolbar=0&navpanes=0&scrollbar=1"
+                  src={`${publicFile(
+                    'AJ_C_Pipattanakun_Resume_CS.pdf',
+                  )}#toolbar=0&navpanes=0&scrollbar=1`}
                   title="AJ C. Pipattanakun Resume"
                 ></iframe>
 
@@ -1060,7 +1065,7 @@ const handleContactSubmit = (event) => {
                   </p>
 
                   <a
-                    href="/AJ_C_Pipattanakun_Resume_CS.pdf"
+                    href={publicFile('AJ_C_Pipattanakun_Resume_CS.pdf')}
                     target="_blank"
                     rel="noreferrer"
                   >
