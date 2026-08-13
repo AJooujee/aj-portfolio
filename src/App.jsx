@@ -1054,7 +1054,7 @@ const handleContactSubmit = async (event) => {
                 <div className="resume-actions">
                   <a
                     className="resume-action-button secondary"
-                    href={publicFile('AJ_C_Pipat_resume.pdf')}
+                    href={publicFile('AJ_C_Pipattanakun_Resume_CS.pdf')}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -1063,8 +1063,8 @@ const handleContactSubmit = async (event) => {
 
                   <a
                     className="resume-action-button primary"
-                    href={publicFile('AJ_C_Pipat_resume.pdf')}
-                    download="AJ_C_Pipat_resume.pdf"
+                    href={publicFile('AJ_C_Pipattanakun_Resume_CS.pdf')}
+                    download="AJ_C_Pipattanakun_Resume_CS.pdf"
                   >
                     Download PDF
                   </a>
@@ -1074,7 +1074,7 @@ const handleContactSubmit = async (event) => {
               <div className="resume-viewer">
                 <iframe
                   src={`${publicFile(
-                    'AJ_C_Pipat_resume.pdf',
+                    'AJ_C_Pipattanakun_Resume_CS.pdf',
                   )}#toolbar=0&navpanes=0&scrollbar=1`}
                   title="AJ C. Pipattanakun Resume"
                 ></iframe>
@@ -1085,7 +1085,7 @@ const handleContactSubmit = async (event) => {
                   </p>
 
                   <a
-                    href={publicFile('AJ_C_Pipat_resume.pdf')}
+                    href={publicFile('AJ_C_Pipattanakun_Resume_CS.pdf')}
                     target="_blank"
                     rel="noreferrer"
                   >
