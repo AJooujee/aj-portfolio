@@ -506,7 +506,13 @@ const handleContactSubmit = async (event) => {
               href="#home"
               onClick={() => handleMenuClick('Home')}
             >
-              AJ PIPATTANAKUN
+              <img
+                className="nav-profile-image"
+                src={publicFile('about-me.png')}
+                alt="AJ Pipattanakun"
+              />
+
+              <span>AJ PIPATTANAKUN</span>
             </a>
 
             <button

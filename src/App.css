@@ -120,6 +120,9 @@ button {
 
 .logo {
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   color: #ffffff;
   font-size: 1.12rem;
   font-weight: 900;
@@ -131,6 +134,30 @@ button {
     text-shadow 0.25s ease,
     transform 0.25s ease;
 }
+
+.nav-profile-image {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border: 2px solid rgba(90, 209, 245, 0.8);
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  box-shadow:
+    0 0 12px rgba(71, 126, 255, 0.55),
+    0 0 22px rgba(43, 205, 238, 0.25);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.logo:hover .nav-profile-image {
+  transform: scale(1.08);
+  box-shadow:
+    0 0 16px rgba(71, 126, 255, 0.75),
+    0 0 28px rgba(43, 205, 238, 0.35);
+}
+
 
 .logo:hover {
   color: #c7d2ff;
@@ -3062,6 +3089,16 @@ main {
 .contact-success-message p {
   font-size: 0.79rem !important;
   line-height: 1.55 !important;
+}
+
+.nav-profile-image {
+  width: 36px;
+  height: 36px;
+}
+
+.logo {
+  gap: 9px;
+  font-size: 0.82rem;
 }
 
 }
