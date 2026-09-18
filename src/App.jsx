@@ -379,6 +379,132 @@ const projects = [
     link: 'https://github.com/AJooujee/Data-Scientist_Career-Projects/tree/main/Big_Mountain_Resort_Capstone',
   },
 
+  {
+  number: '08',
+  title: 'Cloud-Deployed Full-Stack Engineering System',
+  shortTitle: 'Cloud-Deployed Full-Stack System',
+  status: 'Completed',
+  description:
+    'A full-stack software engineering project focused on building, deploying, and validating a production-style application across frontend, backend, database, container, and cloud environments.',
+  highlights: [
+    'Built a full-stack application with separate frontend and backend components.',
+    'Containerized application services for consistent local and deployment environments.',
+    'Configured environment-based settings and deployment workflows.',
+    'Validated service health, application behavior, and integration between system components.',
+    'Applied Git and GitHub workflows throughout iterative development and deployment.',
+  ],
+  technologies: [
+    'React',
+    'Node.js',
+    'REST APIs',
+    'Docker',
+    'GitHub Actions',
+    'Cloud Deployment',
+    'Git',
+  ],
+  link: 'https://github.com/AJooujee/Software_Engineering_Career_Projects/tree/main/cloud-deployed-full-stack-system',
+},
+{
+  number: '09',
+  title: 'Distributed Job Processing System',
+  shortTitle: 'Distributed Job Processing',
+  status: 'Completed',
+  description:
+    'A backend systems project for processing asynchronous jobs across multiple workers with an emphasis on reliability, coordination, retries, failure handling, and production readiness.',
+  highlights: [
+    'Designed asynchronous job submission and background processing workflows.',
+    'Implemented multi-worker job processing and coordination behavior.',
+    'Added retry and failure-handling mechanisms for unsuccessful jobs.',
+    'Validated system behavior under distributed and failure scenarios.',
+    'Prepared the application for production-style deployment and operational use.',
+  ],
+  technologies: [
+    'Backend Systems',
+    'Distributed Systems',
+    'REST APIs',
+    'Docker',
+    'Testing',
+    'GitHub Actions',
+    'Git',
+  ],
+  link: 'https://github.com/AJooujee/Software_Engineering_Career_Projects/tree/main/distributed-job-processing-system',
+},
+{
+  number: '10',
+  title: 'Observability and Incident Detection Platform',
+  shortTitle: 'Observability & Incident Detection',
+  status: 'Completed',
+  description:
+    'A production-oriented observability project designed to collect operational signals, detect system incidents, expose service health information, and improve troubleshooting and operational visibility.',
+  highlights: [
+    'Implemented service health and operational observability capabilities.',
+    'Added incident-detection and monitoring behavior for application services.',
+    'Improved logging and diagnostic information for troubleshooting.',
+    'Validated platform behavior through automated testing and production-hardening work.',
+    'Applied deployment and reliability practices to prepare the system for production use.',
+  ],
+  technologies: [
+    'Observability',
+    'Monitoring',
+    'Backend Development',
+    'REST APIs',
+    'Docker',
+    'Testing',
+    'GitHub Actions',
+  ],
+  link: 'https://github.com/AJooujee/Software_Engineering_Career_Projects/tree/main/observability-incident-detection-platform',
+},
+{
+  number: '11',
+  title: 'Production Warehouse Microservices Platform',
+  shortTitle: 'Warehouse Microservices',
+  status: 'Completed',
+  description:
+    'A microservices-based software engineering project that models warehouse operations using independently deployable services, API communication, database-backed persistence, and production-oriented configuration.',
+  highlights: [
+    'Designed application functionality as separate service components.',
+    'Implemented API-based communication between backend services.',
+    'Used persistent storage for warehouse-related application data.',
+    'Configured environment-specific settings for local and deployment workflows.',
+    'Applied testing, containerization, and production-readiness practices.',
+  ],
+  technologies: [
+    'Microservices',
+    'REST APIs',
+    'Databases',
+    'Docker',
+    'Backend Development',
+    'Testing',
+    'Git',
+  ],
+  link: 'https://github.com/AJooujee/Software_Engineering_Career_Projects/tree/main/production-warehouse-microservices',
+},
+{
+  number: '12',
+  title: 'Sensor Data Logging and Test Platform',
+  shortTitle: 'Sensor Data Logging Platform',
+  status: 'Completed',
+  description:
+    'A software engineering project for receiving, validating, storing, and testing sensor data through an API-based backend, with emphasis on deployment, automated validation, and repeatable system testing.',
+  highlights: [
+    'Built backend endpoints for receiving and processing sensor data.',
+    'Validated incoming sensor information before application processing.',
+    'Implemented structured data logging for later inspection and testing.',
+    'Added automated testing for API and system behavior.',
+    'Containerized and prepared the platform for deployment and CI workflows.',
+  ],
+  technologies: [
+    'Python',
+    'FastAPI',
+    'REST APIs',
+    'Testing',
+    'Docker',
+    'GitHub Actions',
+    'Git',
+  ],
+  link: 'https://github.com/AJooujee/Software_Engineering_Career_Projects/tree/main/sensor-data-logging-test-platform',
+},
+
 ]
 
 
