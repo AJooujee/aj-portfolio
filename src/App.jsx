@@ -505,6 +505,29 @@ const projects = [
   link: 'https://github.com/AJooujee/Software_Engineering_Career_Projects/tree/main/sensor-data-logging-test-platform',
 },
 
+{
+  number: '13',
+  title: 'Sokoban Puzzle Game',
+  shortTitle: 'AJ Sokoban Game',
+  status: 'Completed',
+  description:
+    'A puzzle game project based on Sokoban, where the player moves through a grid-based environment and pushes boxes onto designated goal locations. The project focuses on game logic, movement rules, level handling, and interactive problem solving.',
+  highlights: [
+    'Implements the core Sokoban box-pushing puzzle mechanics.',
+    'Handles player movement and collision rules in a grid-based environment.',
+    'Tracks box and goal positions to determine puzzle completion.',
+    'Organizes gameplay logic around levels and valid player actions.',
+    'Applies programming and problem-solving concepts through an interactive game project.',
+  ],
+  technologies: [
+    'Game Logic',
+    'Algorithms',
+    'Data Structures',
+    'Problem Solving',
+  ],
+  link: 'https://github.com/AJooujee/AJ_Sokoban-Game',
+},
+
 ]
 
 
